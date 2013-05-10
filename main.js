@@ -25,7 +25,6 @@ var SiteHandler ={
     
     touch:          function(e){
         e.preventDefault();
-        alert(e.touches[0].pageY);
     },
     
     step:           function(way){
