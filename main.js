@@ -54,6 +54,7 @@ var SiteHandler ={
     listenScrolling:    function(){
         if (window.addEventListener) {
             window.addEventListener('DOMMouseScroll', SiteHandler.wheel, false);
+            window.addEventListener('touchmove', SiteHandler.wheel, false);
         }
         window.onmousewheel = document.onmousewheel = SiteHandler.wheel;        
     },
@@ -61,6 +62,7 @@ var SiteHandler ={
     ignoreScrolling:    function(){
         if (window.removeEventListener) {
             window.removeEventListener('DOMMouseScroll', SiteHandler.wheel, false);
+            window.removeEventListener('touchmove', SiteHandler.wheel, false);
         }
         window.onmousewheel = document.onmousewheel = null;  
     }
