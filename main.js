@@ -23,6 +23,11 @@ var SiteHandler ={
         }
     },
     
+    touch:          function(e){
+        e.preventDefault();
+        alert(e.touches[0].pageY);
+    },
+    
     step:           function(way){
         SiteHandler.ignoreScrolling();
         var maxElements =$('.'+SiteHandler.settings.pagesClass).length;
@@ -54,7 +59,7 @@ var SiteHandler ={
     listenScrolling:    function(){
         if (window.addEventListener) {
             window.addEventListener('DOMMouseScroll', SiteHandler.wheel, false);
-            window.addEventListener('touchmove', SiteHandler.wheel, false);
+            window.addEventListener('touchmove', SiteHandler.touch, false);
         }
         window.onmousewheel = document.onmousewheel = SiteHandler.wheel;        
     },
@@ -62,7 +67,7 @@ var SiteHandler ={
     ignoreScrolling:    function(){
         if (window.removeEventListener) {
             window.removeEventListener('DOMMouseScroll', SiteHandler.wheel, false);
-            window.removeEventListener('touchmove', SiteHandler.wheel, false);
+            window.removeEventListener('touchmove', SiteHandler.touch, false);
         }
         window.onmousewheel = document.onmousewheel = null;  
     }
