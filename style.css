@@ -17,6 +17,7 @@ body,html{
 }
 body{
     background-color:   rgb(223,224,223);
+    font-family: 'Abel',sans-serif;
 }
 
 .step{
@@ -24,7 +25,16 @@ body{
     height:     100%;
     position:   fixed;
 }
-
+.arrow{
+    width:      50px;
+    height:     50px;
+    position:   absolute;
+    bottom:     25%;
+    left:       50%;
+    margin-left:-25px;
+    background: url(arrow.png) 0 0px no-repeat;
+    opacity:    0;
+}
 #preload{
     background:rgb(223,224,223) url(logo.png) center center no-repeat;
     z-index: 10;
@@ -32,7 +42,6 @@ body{
 #about{
     background-color:white;
     z-index: 9;
-    font-family: 'Abel',sans-serif;
 }
 #about .cover{
     width:      100%;
@@ -86,7 +95,7 @@ header > a:nth-child(2):hover{
 header > a:last-child:hover{
     background-position:    -98px -49px;
 }
-#about .welcomeCircle{
+.circle{
     position: relative;
     top: -200px;
     background-color: rgb(154,78,158);
@@ -117,8 +126,42 @@ header > a:last-child:hover{
     bottom: 0;
 }
 #skills{
-    background-color:grey;
+    background-color:rgb(58,58,58);
     z-index: 8;
+}
+#skills .skillsCircle{
+    background-color:   rgb(223,223,223);
+    color:              rgb(74,74,74);
+    width:              150px;
+    height:             150px;
+    line-height:        150px;
+    font-size:          24px;
+}
+#skills .skillsContainer{
+    position:           absolute;
+    bottom:             50px;
+    width:              100%;
+    text-align:         center;
+    font-size:          0;
+    overflow:           hidden;
+}
+#skills .skillsGroup, #skills .skillsDetail{
+    width:              150px;
+    height:             150px;
+    line-height:        150px;
+    background-color:   rgb(154,78,158);
+    color:              rgb(223,223,223);
+    display:            inline-block;
+    font-size:          18px;
+    margin:             0 1%;
+    position:           relative;
+    bottom:             -150px;
+}
+#skills .skillsDetail{
+    bottom:             0;
+    background-color:   rgb(223,223,223);
+    color:              rgb(74,74,74);
+    display:            none;
 }
 #contact{
     background-color:white;
