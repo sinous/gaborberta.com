@@ -164,6 +164,7 @@ header > a:last-child:hover{
     display:            none;
 }
 #contact{
-    background-color:white;
-    z-index: 7;
+    background:         transparent url(me.jpg) center center no-repeat;
+    background-size:    50%;
+    z-index:            7;
 }
