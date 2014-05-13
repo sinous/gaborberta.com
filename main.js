@@ -45,9 +45,12 @@ var SiteHandler ={
     touch:          function(e){
         e.preventDefault();
 	currentY	=e.touches.item(0).clientY;
-	if(SiteHandler.previousTouchPosition!==false && !SiteHandler.currentlyIsAnimating){
+        if(SiteHandler.previousTouchPosition!==false && !SiteHandler.currentlyIsAnimating && SiteHandler.shouldAnimateSomethingElse!==false){
+            SiteHandler.otherWheelAnimation(1-(SiteHandler.previousTouchPosition-currentY));
+            return SiteHandler.previousTouchPosition	=currentY;
+        }
+	if(SiteHandler.previousTouchPosition!==false && !SiteHandler.currentlyIsAnimating)
 	    SiteHandler.step(1-(SiteHandler.previousTouchPosition-currentY));
-	}
 	SiteHandler.previousTouchPosition	=currentY;
     },
 
@@ -100,7 +103,7 @@ var SiteHandler ={
 	$('header .arrow').animate({bottom:'25%'},SiteHandler.settings.animSpeed,SiteHandler.settings.fx);
         $('header').animate({backgroundPositionY:'20px'},SiteHandler.settings.animSpeed,SiteHandler.settings.fx,function(){
             $('#about .welcomeCircle').animate({top:'150px'},SiteHandler.settings.animSpeed,SiteHandler.settings.fx);
-            $('#about .welcomeMessage').animate({bottom:'20%',width:'50%',left:'25%'},SiteHandler.settings.animSpeed,SiteHandler.settings.fx);
+            $('#about .welcomeMessage').animate({bottom:'25%',width:'50%',left:'25%'},SiteHandler.settings.animSpeed,SiteHandler.settings.fx);
             SiteHandler.animateArrow('#about .arrow');
             SiteHandler.chainingSocialAnimations(($('header > a').length-1));
             $('header a').promise().done(SiteHandler.allAnimationsHasBeenFinished);
@@ -176,6 +179,7 @@ var SiteHandler ={
     
     infosAnim:                      function(){
         var greyCoverStarted    =false;
+        $('header').css('zIndex',100);
         $('.blueCover').animate({bottom:'0%'},{
             duration:   SiteHandler.settings.animSpeed,
             step:       function(now,tween){
